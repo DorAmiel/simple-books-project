@@ -1,5 +1,5 @@
 let booksList = []
-let bookIdCounter = 0
+
 let nameElement = document.getElementById("book-name-input")
 let authorElement = document.getElementById("book-author-input")
 let priceElement = document.getElementById("book-price-input")
@@ -11,15 +11,19 @@ const addNewBook = () => {
         alert("Name or Author input is empty! Please try again.")
         return
     }
+
+    let newId = Math.floor(Math.random() * 10000)
     let newBook = {
-            id: bookIdCounter++,
-            name: nameElement.value,
-            author: authorElement.value,
-            price: Number(priceElement.value)
-        }
-        //update list
+        id: newId,
+        name: nameElement.value,
+        author: authorElement.value,
+        price: Number(priceElement.value)
+    }
+
+    //update list
     booksList.push(newBook)
-        //update list in html
+
+    //update list in html
     loadBooks()
 
     //Clear Inputs
